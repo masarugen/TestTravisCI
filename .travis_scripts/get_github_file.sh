@@ -33,5 +33,6 @@ curl -s -f \
     --verbose
 if [ $? -ne 0 -o ! -e ${LOCAL_SAVE_PATH} ]; then
     # ファイル取得失敗
+    echo "failed file get"
     exit 1
 fi
