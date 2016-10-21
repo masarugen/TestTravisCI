@@ -55,10 +55,12 @@ git config --global credential.helper "store --file=$HOME/.config/git-credential
 curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz"
 tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tgz"
 export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}/bin"
-# if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
-#     echo "not found hub command."
-#     exit 1;
-# fi
+if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
+    echo "not found hub command."
+    exit 1;
+fi
+hub -h
+exit 0
 
 # リポジトリに変更をコミットする
 hub clone "${GH_OWNER}/${GH_REPO}" -b "${GH_BRANCH}"
