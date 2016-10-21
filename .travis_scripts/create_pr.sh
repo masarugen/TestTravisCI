@@ -65,6 +65,7 @@ which hub
 hub -h
 git config --list
 cat $HOME/.config/git-credential
+cat $HOME/.config/hub
 
 # リポジトリに変更をコミットする
 hub clone "${GH_OWNER}/${GH_REPO}" -b "${GH_BRANCH}"
