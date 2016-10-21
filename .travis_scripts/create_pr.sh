@@ -15,9 +15,19 @@ if [ $# -ne 4 ]; then
     echo "usage: create_pr.sh [repo] [branch] [copy元] [copy先]"
     exit 1
 fi
+if [ "${GH_TOKEN}" = "" ]; then
+    # GH_TOKENが設定されていない
+    echo "not set GH_TOKEN"
+    exit 1
+fi
+if [ "${GH_USER}" = "" ]; then
+    # GH_USERが設定されていない
+    echo "not set GH_USER"
+    exit 1
+fi
 
 BRANCH_PREFIX="auto_generate_pr_"
-HUB_VERSION="2.2.9"
+HUB_VERSION="2.2.0"
 
 # 認証情報を設定する
 mkdir -p "$HOME/.config"
@@ -36,13 +46,13 @@ git config --global hub.protocol "https"
 git config --global credential.helper "store --file=$HOME/.config/git-credential"
 
 # hubをインストールする
-curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz"
-tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tgz"
-export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}/bin"
-if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
-    echo "not found hub command."
-    exit 1;
-fi
+curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tar.gz"
+tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tar.gz"
+export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}"
+# if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
+#     echo "not found hub command."
+#     exit 1;
+# fi
 
 # リポジトリに変更をコミットする
 hub clone "${1}" -b "${2}" _
