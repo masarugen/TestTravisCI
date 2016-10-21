@@ -26,7 +26,7 @@ if [ "${GH_TOKEN}" = "" ]; then
     exit 1
 fi
 
-ls -l
+mkdir `dirname ${LOCAL_SAVE_PATH}`
 
 curl -s -f \
     -H "Authorization: token ${GH_TOKEN}" \
