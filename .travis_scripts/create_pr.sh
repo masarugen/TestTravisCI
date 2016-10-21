@@ -33,13 +33,14 @@ GH_BRANCH="${3}"
 SOURCE_PATH="${4}"
 COPY_PATH="${5}"
 BRANCH_PREFIX="auto_generate_pr_"
-HUB_VERSION="2.2.4"
+HUB_VERSION="2.2.9"
 HUB_SURFIX="tgz"
+GIT_CREDENTIAL="$HOME/.config/git-credential"
 
 # 認証情報を設定する
 mkdir -p "$HOME/.config"
 set +x
-echo "https://${GH_TOKEN}:@github.com" > "$HOME/.config/git-credential"
+echo "https://${GH_TOKEN}:@github.com" > ${GIT_CREDENTIAL}
 echo "github.com:
 - user: ${GH_USER}
   oauth_token: ${GH_TOKEN}" > "$HOME/.config/hub"
@@ -50,7 +51,7 @@ set -x
 git config --global user.name  "${GH_USER}"
 git config --global user.email "${GH_USER}@users.noreply.github.com"
 git config --global hub.protocol "https"
-git config --global credential.helper "store --file=$HOME/.config/git-credential"
+git config --global credential.helper "store --file=${GIT_CREDENTIAL}"
 
 # hubをインストールする
 curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.${HUB_SURFIX}"
@@ -61,12 +62,6 @@ if [ $? != 0 ] ; then
     echo "not found hub command."
     exit 1;
 fi
-test which hub
-which hub
-hub -h
-git config --list
-cat $HOME/.config/git-credential
-cat $HOME/.config/hub
 
 # リポジトリに変更をコミットする
 hub clone "${GH_OWNER}/${GH_REPO}" -b "${GH_BRANCH}"
