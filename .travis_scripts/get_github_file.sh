@@ -20,7 +20,7 @@ curl -s -f \
     -o ${LOCAL_SAVE_PATH} \
     -L ${GH_URL} \
     --verbose
-if [ $? -ne 0 -a ! -e ${LOCAL_SAVE_PATH} ]; then
+if [ $? -ne 0 -o ! -e ${LOCAL_SAVE_PATH} ]; then
     # ファイル取得失敗
     echo "failed"
     exit 1
