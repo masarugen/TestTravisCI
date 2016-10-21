@@ -41,8 +41,8 @@ mkdir -p "$HOME/.config"
 set +x
 echo "https://${GH_TOKEN}:@github.com" > "$HOME/.config/git-credential"
 echo "github.com:
-- oauth_token: ${GH_TOKEN}
-- user: ${GH_USER}" > "$HOME/.config/hub"
+- user: ${GH_USER}
+- oauth_token: ${GH_TOKEN}" > "$HOME/.config/hub"
 unset GH_TOKEN
 set -x
 
