@@ -5,7 +5,7 @@
 # GET_FILE_BRANCH：ファイル取得してくるブランチ
 # APP_DEVELOP_BRANCH：アプリの開発ブランチ
 
-if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
+# if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     # API経由での起動の場合に自動でソースを生成してPRを送る
 
     # ファイルの取得
@@ -39,4 +39,4 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     if [ $? -ne 0 ]; then
         exit 1
     fi
-fi
+# fi
