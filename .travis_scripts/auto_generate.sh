@@ -9,6 +9,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     # API経由での起動の場合に自動でソースを生成してPRを送る
 
     # ファイルの取得
+    echo "=== start file get ==="
     ./.travis_scripts/get_github_file.sh \
     nasneg \
     FilePut \
@@ -21,12 +22,14 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     fi
 
     # ソース生成
+    echo "=== start source generate ==="
     mkdir -p ./docs/generate/
     cp ./docs/time.txt ./docs/generate/time.txt
     `date "+%Y-%m-%d_%H-%M-%S"` > ./docs/generate/date.txt
     cat ./docs/generate/*
 
     # PRの生成
+    echo "=== start create pull request ==="
     ./.travis_scripts/create_pr.sh \
     PRTarget \
     $APP_DEVELOP_BRANCH \
