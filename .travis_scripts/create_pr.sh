@@ -30,7 +30,7 @@ git config --global hub.protocol "https"
 git config --global credential.helper "store --file=$HOME/.config/git-credential"
 
 # hubをインストールする
-curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tar.gz"
+curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz"
 tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tar.gz"
 export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}"
 
