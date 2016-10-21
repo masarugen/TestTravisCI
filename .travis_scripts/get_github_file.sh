@@ -15,10 +15,9 @@ GH_PATH="${4}"
 GH_URL="https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}?ref=${GH_BRANCH}"
 LOCAL_SAVE_PATH=${5}
 
-echo "${GH_OWNER} ${GH_REPO} ${GH_BRANCH} ${GH_PATH} ${LOCAL_SAVE_PATH}"
 if [ $# -ne 5 ]; then
     # 引数が足りないので終了
-    echo "usage: get_github_file.sh [owner] [repo] [branch] [copy元] [copy先]"
+    echo "usage: get_github_file.sh [owner] [repo] [branch] [github file paht] [local seve path]"
     exit 1
 fi
 curl -s -f \

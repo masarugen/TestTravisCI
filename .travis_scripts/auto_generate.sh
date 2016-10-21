@@ -24,6 +24,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     mkdir -p ./docs/generate/
     cp ./docs/time.txt ./docs/generate/time.txt
     `date "+%Y-%m-%d_%H-%M-%S"` > ./docs/generate/date.txt
+    cat ./docs/generate/*
 
     # PRの生成
     ./.travis_scripts/create_pr.sh \
