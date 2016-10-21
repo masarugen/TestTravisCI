@@ -16,7 +16,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     doc/schfile/test/time.txt \
     ./docs/time.txt
     # 正常終了チェック
-    if [ $? -ne 0]; then
+    if [ $? -ne 0 ]; then
         exit 1
     fi
 
@@ -32,7 +32,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     ./docs/generate \
     ./src/docs/generate
     # 正常終了チェック
-    if [ $? -ne 0]; then
+    if [ $? -ne 0 ]; then
         exit 1
     fi
 fi
