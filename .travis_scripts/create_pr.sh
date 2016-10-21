@@ -45,7 +45,7 @@ if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
 fi
 
 # リポジトリに変更をコミットする
-hub clone -b "${2}" "${1}" _
+hub clone "${1}" -b "${2}" _
 cd _
 NEW_BRANCH_NAME=${BRANCH_PREFIX}`date "+%Y-%m-%d_%H-%M-%S"`
 hub checkout -b ${NEW_BRANCH_NAME}
