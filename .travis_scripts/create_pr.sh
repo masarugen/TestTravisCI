@@ -35,7 +35,7 @@ tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tar.gz"
 export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}"
 
 # リポジトリに変更をコミットする
-hub clone -b "${2}" ${1}" _
+hub clone -b "${2}" "${1}" _
 cd _
 NEW_BRANCH_NAME=${BRANCH_PREFIX}`date "+%Y-%m-%d_%H-%M-%S"`
 hub checkout -b ${NEW_BRANCH_NAME}
