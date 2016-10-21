@@ -18,6 +18,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
 
     # ソース生成
     mkdir -p ./docs/generate/
+    cp ./docs/time.txt ./docs/generate/time.txt
     `date` > ./docs/generate/date.txt
 
     # PRの生成
