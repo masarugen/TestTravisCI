@@ -15,7 +15,7 @@ GH_PATH="${4}"
 GH_URL="https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}?ref=${GH_BRANCH}"
 LOCAL_SAVE_PATH=${5}
 
-echo "${GH_OWNER} ${GH_REPO} ${}GH_BRANCH ${GH_PATH} ${LOCAL_SAVE_PATH}"
+echo "${GH_OWNER} ${GH_REPO} ${GH_BRANCH} ${GH_PATH} ${LOCAL_SAVE_PATH}"
 curl -s -f \
     -H "Authorization: token ${GH_TOKEN}" \
     -H "Accept: application/vnd.github.v3.raw" \
