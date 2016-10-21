@@ -3,7 +3,6 @@
 # Githubからファイルの取得処理
 # 利用する場合は以下の環境変数の設定が必要
 # GH_TOKEN githubのPersonal access tokenを設定
-# usage: get_github_file.sh speee bt-femit-jsonschema master doc/schema/api.json ./bt-jsonschema2java-generate/schema/api.json
 # 第１引数：repositoryのowner
 # 第２引数：repository名
 # 第３引数：ファイル取得先branch名
@@ -21,3 +20,8 @@ curl -s -f \
     -o ${LOCAL_SAVE_PATH} \
     -L ${GH_URL} \
     --verbose
+if [ $? -ne 0 -a ! -e ${LOCAL_SAVE_PATH} ]; then
+    # ファイル取得失敗
+    echo "failed"
+    exit 1
+fi
