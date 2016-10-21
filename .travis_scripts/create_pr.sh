@@ -42,7 +42,7 @@ set +x
 echo "https://${GH_TOKEN}:@github.com" > "$HOME/.config/git-credential"
 echo "github.com:
 - oauth_token: ${GH_TOKEN}
-user: ${GH_USER}" > "$HOME/.config/hub"
+- user: ${GH_USER}" > "$HOME/.config/hub"
 unset GH_TOKEN
 set -x
 
@@ -56,10 +56,11 @@ git config --global credential.helper "store --file=$HOME/.config/git-credential
 curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.${HUB_SURFIX}"
 tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.${HUB_SURFIX}"
 export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}/bin"
-# if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
-#     echo "not found hub command."
-#     exit 1;
-# fi
+which hub
+if [ $? != 0 ] ; then
+    echo "not found hub command."
+    exit 1;
+fi
 test which hub
 which hub
 hub -h
