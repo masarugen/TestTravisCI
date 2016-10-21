@@ -61,14 +61,14 @@ export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}"
 # fi
 
 # リポジトリに変更をコミットする
-hub clone "${1}" -b "${2}" _
-cd _
+hub clone "${GH_OWNER}/${GH_REPO}" -b "${GH_BRANCH}"
+cd ${GH_REPO}
 NEW_BRANCH_NAME=${BRANCH_PREFIX}`date "+%Y-%m-%d_%H-%M-%S"`
 hub checkout -b ${NEW_BRANCH_NAME}
 ## ファイルを変更する ##
-mkdir -p ${4}
-rm -r ${4}
-cp -rp ../${3} ${4}
+mkdir -p ${COPY_PATH}
+rm -r ${COPY_PATH}
+cp -rp ../${SOURCE_PATH} ${COPY_PATH}
 hub add .
 hub commit -m "[UPDATE File] ${NEW_BRANCH_NAME}"
 if [ $? = 0 ] ; then
