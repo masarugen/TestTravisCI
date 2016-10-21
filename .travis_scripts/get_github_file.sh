@@ -25,6 +25,9 @@ if [ "${GH_TOKEN}" = "" ]; then
     echo "not set GH_TOKEN"
     exit 1
 fi
+
+ls -l
+
 curl -s -f \
     -H "Authorization: token ${GH_TOKEN}" \
     -H "Accept: application/vnd.github.v3.raw" \
