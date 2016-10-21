@@ -1,0 +1,20 @@
+# .travis.yml
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+env:
+  global:
+    - TZ=Asia/Tokyo
+    - JAVA7_HOME=/usr/lib/jvm/java-7-oracle
+    - JAVA8_HOME=/usr/lib/jvm/java-8-oracle
+    - JAVA_HOME=$JAVA7_HOME
+
+script:
+  # 開発時のテスト用シェル
+  - ./travis_scripts/run_test.sh
+  # ソースコード自動生成用シェル
+  - ./travis_scripts/auto_generate.sh
+
