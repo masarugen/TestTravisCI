@@ -33,7 +33,7 @@ GH_BRANCH="${3}"
 SOURCE_PATH="${4}"
 COPY_PATH="${5}"
 BRANCH_PREFIX="auto_generate_pr_"
-HUB_VERSION="2.2.1"
+HUB_VERSION="2.2.2"
 HUB_SURFIX="tar.gz"
 
 # 認証情報を設定する
