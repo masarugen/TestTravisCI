@@ -5,14 +5,15 @@
 # GH_TOKEN
 # GH_USER
 #
-# 第１引数：リポジトリ名
-# 第２引数：ブランチ名
-# 第３引数：コピー元フォルダ
-# 第４引数：コピー先フォルダ
+# 第１引数：repositoryのowner
+# 第２引数：repository名
+# 第３引数：branch名
+# 第４引数：コピー元フォルダ
+# 第５引数：コピー先フォルダ
 
-if [ $# -ne 4 ]; then
+if [ $# -ne 5 ]; then
     # 引数が足りないので終了
-    echo "usage: create_pr.sh [repo] [branch] [copy元] [copy先]"
+    echo "usage: create_pr.sh owner repo branch copy元 copy先"
     exit 1
 fi
 if [ "${GH_TOKEN}" = "" ]; then
@@ -26,6 +27,11 @@ if [ "${GH_USER}" = "" ]; then
     exit 1
 fi
 
+GH_OWNER="${1}"
+GH_REPO="${2}"
+GH_BRANCH="${3}"
+SOURCE_PATH="${4}"
+COPY_PATH="${5}"
 BRANCH_PREFIX="auto_generate_pr_"
 HUB_VERSION="2.2.0"
 

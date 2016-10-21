@@ -17,7 +17,7 @@ LOCAL_SAVE_PATH=${5}
 
 if [ $# -ne 5 ]; then
     # 引数が足りないので終了
-    echo "usage: get_github_file.sh [owner] [repo] [branch] [github file paht] [local seve path]"
+    echo "usage: get_github_file.sh owner repo branch github上のパス ローカルの保存先"
     exit 1
 fi
 if [ "${GH_TOKEN}" = "" ]; then
