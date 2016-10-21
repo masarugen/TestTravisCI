@@ -40,7 +40,7 @@ curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-li
 tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tgz"
 export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}/bin"
 if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
-    echo "not found hub command"
+    echo "not found hub command."
     exit 1;
 fi
 
