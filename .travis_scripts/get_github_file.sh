@@ -20,6 +20,10 @@ if [ $# -ne 5 ]; then
     echo "usage: get_github_file.sh [owner] [repo] [branch] [github file paht] [local seve path]"
     exit 1
 fi
+if [ "${GH_TOKEN}" = "" ]; then
+    echo "not set GH_TOKEN"
+    exit 1
+fi
 curl -s -f \
     -H "Authorization: token ${GH_TOKEN}" \
     -H "Accept: application/vnd.github.v3.raw" \
