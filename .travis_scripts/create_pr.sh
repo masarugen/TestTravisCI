@@ -59,6 +59,7 @@ if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
     echo "not found hub command."
     exit 1;
 fi
+which hub
 hub -h
 exit 0
 
