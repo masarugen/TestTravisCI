@@ -15,7 +15,7 @@
     FilePut \
     $GET_FILE_BRANCH \
     docs/file/test/time.txt \
-    ./docs/time.txt
+    ./time.txt
     # 正常終了チェック
     if [ $? -ne 0 ]; then
         exit 1
