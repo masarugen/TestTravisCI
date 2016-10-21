@@ -63,6 +63,7 @@ export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}/bin"
 test which hub
 which hub
 hub -h
+git config --list
 
 # リポジトリに変更をコミットする
 hub clone "${GH_OWNER}/${GH_REPO}" -b "${GH_BRANCH}"
