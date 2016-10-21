@@ -33,7 +33,7 @@ GH_BRANCH="${3}"
 SOURCE_PATH="${4}"
 COPY_PATH="${5}"
 BRANCH_PREFIX="auto_generate_pr_"
-HUB_VERSION="2.2.9"
+HUB_VERSION="2.2.8"
 
 # 認証情報を設定する
 mkdir -p "$HOME/.config"
@@ -61,7 +61,6 @@ if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
 fi
 which hub
 hub -h
-exit 0
 
 # リポジトリに変更をコミットする
 hub clone "${GH_OWNER}/${GH_REPO}" -b "${GH_BRANCH}"
