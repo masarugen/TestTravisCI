@@ -13,7 +13,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     nasneg \
     FilePut \
     $GET_FILE_BRANCH \
-    doc/schfile/test/time.txt \
+    doc/file/test/time.txt \
     ./docs/time.txt
     # 正常終了チェック
     if [ $? -ne 0 ]; then

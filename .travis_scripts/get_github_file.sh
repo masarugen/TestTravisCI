@@ -21,6 +21,7 @@ if [ $# -ne 5 ]; then
     exit 1
 fi
 if [ "${GH_TOKEN}" = "" ]; then
+    # GH_TOKENが設定されていない
     echo "not set GH_TOKEN"
     exit 1
 fi
