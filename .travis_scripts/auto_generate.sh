@@ -9,7 +9,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     # API経由での起動の場合に自動でソースを生成してPRを送る
 
     # ファイルの取得
-    ./travis_scripts/get_github_file.sh \
+    ./.travis_scripts/get_github_file.sh \
     nasneg \
     FilePut \
     $GET_FILE_BRANCH \
@@ -22,7 +22,7 @@ if [[ $TRAVIS_EVENT_TYPE = "api" ]] ; then
     `date` > ./docs/generate/date.txt
 
     # PRの生成
-    ./travis_scripts/create_pr.sh \
+    ./.travis_scripts/create_pr.sh \
     PRTarget \
     $APP_DEVELOP_BRANCH \
     ./docs/generate \
