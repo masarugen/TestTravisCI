@@ -10,6 +10,12 @@
 # 第３引数：コピー元フォルダ
 # 第４引数：コピー先フォルダ
 
+if [ $# -ne 4 ]; then
+    # 引数が足りないので終了
+    echo "usage: create_pr.sh [repo] [branch] [copy元] [copy先]"
+    exit 1
+fi
+
 BRANCH_PREFIX="auto_generate_pr_"
 HUB_VERSION="2.2.9"
 
@@ -33,7 +39,7 @@ git config --global credential.helper "store --file=$HOME/.config/git-credential
 curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz"
 tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.tgz"
 export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}"
-if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION} ]; then
+if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/hub ]; then
     echo "not found hub command"
     exit 1;
 fi
