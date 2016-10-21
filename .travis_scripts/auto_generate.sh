@@ -31,6 +31,7 @@
     # PRの生成
     echo "=== start create pull request ==="
     ./.travis_scripts/create_pr.sh \
+    nasneg \
     PRTarget \
     $APP_DEVELOP_BRANCH \
     ./docs/generate \
