@@ -74,7 +74,7 @@ hub commit -m "[UPDATE File] ${NEW_BRANCH_NAME}"
 if [ $? = 0 ] ; then
     # Pull Requestを送る
     hub push origin $NEW_BRANCH_NAME
-    hub pull-request -m "[AUTO PR] ${NEW_BRANCH_NAME}"
+    hub pull-request -b ${GH_BRANCH} -m "[AUTO PR] ${NEW_BRANCH_NAME}"
 else
     echo "There no updates"
 fi
