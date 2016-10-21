@@ -34,7 +34,7 @@ SOURCE_PATH="${4}"
 COPY_PATH="${5}"
 BRANCH_PREFIX="auto_generate_pr_"
 HUB_VERSION="2.2.2"
-HUB_SURFIX="tar.gz"
+HUB_SURFIX="tgz"
 
 # 認証情報を設定する
 mkdir -p "$HOME/.config"
@@ -55,11 +55,12 @@ git config --global credential.helper "store --file=$HOME/.config/git-credential
 # hubをインストールする
 curl -LO "https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.${HUB_SURFIX}"
 tar -C "$HOME" -zxf "hub-linux-amd64-${HUB_VERSION}.${HUB_SURFIX}"
-export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}"
+export PATH="$PATH:$HOME/hub-linux-amd64-${HUB_VERSION}/bin"
 # if [ ! -e $HOME/hub-linux-amd64-${HUB_VERSION}/bin/hub ]; then
 #     echo "not found hub command."
 #     exit 1;
 # fi
+test which hub
 which hub
 hub -h
 
